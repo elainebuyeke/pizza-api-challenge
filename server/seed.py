@@ -3,7 +3,6 @@ import os
 sys.path.append(os.path.dirname(os.path.abspath(__file__)))
 sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), '..')))
 
-
 from server import create_app, db
 from server.models.restaurant import Restaurant
 from server.models.pizza import Pizza
@@ -19,6 +18,7 @@ def seed_data():
         r1 = Restaurant(name="Domino's", address="Ngong lane")
         r2 = Restaurant(name="Pizza Inn", address="Junction Mall,Ngong rd")
         db.session.add_all([r1, r2])
+        db.session.commit() 
 
         p1 = Pizza(name="Hawaian", ingredients="Dough, Tomato Sauce, Cheese,Pineapple")
         p2 = Pizza(name="Pepperoni", ingredients="Dough, Tomato Sauce, Cheese, Pepperoni")

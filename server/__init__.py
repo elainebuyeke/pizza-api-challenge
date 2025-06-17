@@ -23,4 +23,9 @@ def create_app():
     app.register_blueprint(pizza_bp)
     app.register_blueprint(restaurant_pizza_bp)
 
+    @app.route('/')
+    def home():
+        return {'message': 'Welcome to the Pizza API'}
+
+
     return app
